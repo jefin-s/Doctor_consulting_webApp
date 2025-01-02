@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PMR</title>
+</head>
+<body>
+<center>
+	<h1>
+		 Update Patient Medical Report
+	</h1>
+
+	<form method="post">
+        {% csrf_token %}
+
+		<table>
+			<tr>
+				<td>
+					<h4>Add PMR :</h4>
+				</td>
+				<td>
+					<input type="file" name="">
+				</td>
+
+			</tr>
+
+			<tr>
+				<td>
+					<h5>
+						Patient Name:
+					</h5>
+				</td>
+
+				<td>
+					<select>
+						<option></option>
+					</select>
+				</td>
+      			</tr>
+      			<tr>
+      				<td>
+      					<input type="submit" value="submit">
+      				</td>
+
+      			</tr>
+		</table>
+	</form>
+</center>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		view Booking details-Patient
+	</title>
+</head>
+<body>
+	<center>
+		<h1>
+			View the Booking Details -patient
+		</h1>
+		<table border="2">
+		<tr>
+			<th>Booking_id</th>
+			<th>Booking_date</th>
+			
+			<th>Time</th>
+			<th>Doctor_id</th>
+		</tr>
+            {% for i in det_pat%}
+		<tr>
+			<td>{{ i.doctor_id }}</td>
+			<td>{{ i.booking_date }}</td>
+			<td>{{ i.booking_time }}</td>
+			<td>{{ i.booking_id }}</td>
+			<td></td>
+			<td></td>
+			
+
+		</tr>
+            {% endfor %}
+	</table>
+	</center>
+
+</body>
+</html>

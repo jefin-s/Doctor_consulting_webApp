@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>View PMR</title>
+
+</head>
+<body>
+<center>
+	<h1>
+		View Patient Medical Report
+	</h1>
+
+
+		<table border="2">
+		<tr>
+			<th>PMR_details</th>
+			<th>Doctor_id</th>
+			
+			<th>Patient_id</th>
+			
+		</tr>
+            {% for i in pmv %}
+		<tr>
+			<td>{{ i.doctor_id }}</td>
+			<td>{{ i.pateint_id }}</td>
+			<td>{{ i.pmr_details }}</td>
+			<td> <a href=""></a> Update</td>
+			
+			
+
+		</tr>
+            {% endfor %}
+	</table>
+	
+
+</body>
+</html>
+</center>
+</body>
+</html>

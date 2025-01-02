@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		view Booking Status-Admin
+	</title>
+</head>
+<body>
+	<center>
+		<h1>
+			View the Booking Status -Admin
+		</h1>
+		<table border="2">
+		<tr>
+			<th>Booking_id</th>
+			<th>Booking_date</th>
+			
+			<th>Time</th>
+			<th>Doctor_id</th>
+		</tr>
+
+    {% for i in st_list %}
+
+		<tr>
+			<td>{{ i.booking_id }}</td>
+			<td>{{ i.booking_time }}</td>
+			<td>{{ i.booking_date }}</td>
+			<td>{{ i.doctor_id }}</td>
+			<td></td>
+			<td></td>
+			
+
+		</tr>
+            {% endfor %}
+	</table>
+	</center>
+
+</body>
+</html>

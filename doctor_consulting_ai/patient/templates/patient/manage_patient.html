@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Manage Patient</title>
+</head>
+<body>
+<center>
+	<h1>Manage Patient</h1>
+	<table border="5">
+		<tr>
+			<th>patient_name</th>
+			<th>D.O.B</th>
+			<th>Gender</th>
+			<th>Email</th>
+			<th>Phone</th>
+			<th>Status</th>
+		</tr>
+        {% for i in mp %}
+
+		<tr>
+			<td>{{ i.patient_name }}</td>
+{#			<td></td>#}
+			<td> {{ i.gender }}</td>
+			<td>{{ i.email }}</td>
+			<td>{{ i.phone }}</td>
+			<td>{{ i.status }}</td>
+			<td><a href="">accept</a></td>
+			<td><a href="">reject</a></td>
+
+		</tr>
+        {% endfor %}
+	</table>
+</center>
+</body>
+</html>

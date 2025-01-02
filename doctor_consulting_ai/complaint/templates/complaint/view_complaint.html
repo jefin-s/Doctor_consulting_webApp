@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		view complaint
+	</title>
+</head>
+<body>
+	<center>
+		<h1>
+			View the Complaint from Patient -Doctor
+		</h1>
+		<table border="2">
+		<tr>
+			<th>complaint_name</th>
+			<th>Doctor_id</th>
+			<th>Date</th>
+			<th>Time</th>
+			<th>Patient_id</th>
+			<th>Status</th>
+		</tr>
+		<tr>
+            {%for i in view%}
+			<td>{{ i.complaints}}</td>
+			<td>{{ i.doctor_id }}</td>
+			<td>{{ i.date }}</td>
+			<td>{{ i.time }}</td>
+			<td>{{ i.patient_id }}</td>
+			<td></td>
+			
+
+		</tr>
+            {% endfor %}
+	</table>
+	</center>
+
+</body>
+</html>

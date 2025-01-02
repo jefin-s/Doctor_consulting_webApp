@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Manage Patient</title>
+</head>
+<body>
+<center>
+	<h1>Manage Patient</h1>
+	<table border="5">
+		<tr>
+			<th>Complaint_name</th>
+			<th>Doctor_id</th>
+			<th>Date</th>
+			<th>Time</th>
+			<th>Pateint_id</th>
+			
+		</tr>
+        {% for i in manage%}
+		<tr>
+			<td>{{ i.complaints}}</td>
+			<td>{{ i.doctor_id }}</td>
+			<td>{{ i.date }}</td>
+			<td>{{ i.time }}</td>
+			<td>{{ i.patient_id }}</td>
+			<td></td>
+            <td></td>
+
+			<td><a href="">reply</a></td>
+			
+
+		</tr>
+        {% endfor %}
+	</table>
+</center>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Feedback </title>
+
+</head>
+<body>
+<center>
+	<h1>Feedback Section....!</h1>
+<form method="post">
+    {% csrf_token %}
+	
+	<table>
+		
+		<tr>
+			
+			<td>
+				<h5>
+					Add Solutions
+				</h5>
+			</td>
+			<td>
+				<textarea cols="30" rows="6" placeholder="Add your Feedback" name="solution">
+					
+				</textarea>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+			<h5>
+				patient Name
+			</h5>
+</td>
+<td>
+	
+	<select>
+		<option>
+			
+		</option>
+	</select>
+</td>
+		</tr>
+
+		<tr> <td>
+			<input type="submit" value="submit">
+		</td></tr>
+
+	</table>
+</form>
+</center>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Manage doctor
+	</title>
+</head>
+<body>
+  <center>
+  	<h1>
+  		Manage Doctor
+  	</h1>
+
+  	<table border="2" >
+  		<tr>
+  			<th>Doctor_name</th>
+  			<th>D.O.B</th>
+  			<th>Gender</th>
+  			<th>Email</th>
+  			<th>Phone</th>
+  			<th>Status</th>
+  		</tr>
+        {% for i in mng_dr %}
+  		<tr>
+  			<td>{{ i.doctor_name }}</td>
+  			<td>{{ i.date_of_birth}}</td>
+  			<td>{{ i.gender}}</td>
+  			<td>{{ i.email }}</td>
+  			<td>{{ i.phone }}</td>
+  			<td></td>
+  			<td><a href="">accept</a></td>
+			<td><a href="">reject</a></td>
+  		</tr>
+        {% endfor %}
+  	</table>
+  </center>
+</body>
+</html>
