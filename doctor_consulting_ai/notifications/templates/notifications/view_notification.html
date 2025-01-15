@@ -1,5 +1,8 @@
 <!DOCTYPE html>
+{% extends 'temp/patientbase.html' %}
 <html>
+{% block base %}
+
 <head>
 	<title>
 		view notifications
@@ -10,8 +13,8 @@
 		<h1>
 			View the Notifications from Doctor 
 		</h1>
-		<table border="2">
-		<tr>
+		<table border="2" class="table table-striped" style="color: white">
+		<tr style="color: white">
 			<th>notification_name</th>
 			<th>Doctor_id</th>
 			<th>Date</th>
@@ -19,7 +22,7 @@
 			
 		</tr>
             {% for i in ntv %}
-		<tr>
+		<tr style="color: white">
 			<td>{{ i.notification_name }}</td>
 			<td>{{ i.doctor_id }}</td>
 			<td>{{ i.date }}</td>
@@ -35,3 +38,4 @@
 
 </body>
 </html>
+{% endblock %}

@@ -1,5 +1,8 @@
 <!DOCTYPE html>
+{% extends 'temp/Doctorbase.html' %}
 <html>
+{% block base %}
+
 <head>
 	<title>View PMR</title>
 
@@ -11,8 +14,8 @@
 	</h1>
 
 
-		<table border="2">
-		<tr>
+		<table border="2" class="table table-striped" style="color: white">
+		<tr style="color: white ">
 			<th>PMR_details</th>
 			<th>Doctor_id</th>
 			
@@ -24,7 +27,7 @@
 			<td>{{ i.doctor_id }}</td>
 			<td>{{ i.pateint_id }}</td>
 			<td>{{ i.pmr_details }}</td>
-			<td> <a href=""></a> Update</td>
+			<td> <a href="/pmr/updt_pmr/{{ i.pmr_id }}" class=" btn-close-white">Update</a> </td>
 			
 			
 
@@ -38,3 +41,4 @@
 </center>
 </body>
 </html>
+{% endblock %}

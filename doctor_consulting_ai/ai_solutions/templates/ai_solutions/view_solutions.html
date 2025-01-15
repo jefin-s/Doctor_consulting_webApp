@@ -1,18 +1,21 @@
 <!DOCTYPE html>
+{% extends 'temp/patientbase.html' %}
+{% block base %}
+
 <html>
 <head>
 	<title>view solutions</title>
 </head>
 <body>
 	<center>
-		<h1>
-			View Solutions From Doctor
-		</h1>
+		<h5 style="color: white  ">
+			Solutions From Doctor
+		</h5>
 
-		<table border="1">
+		<table border="1" class="table table-striped" style="color: white">
 			
 			
-			<tr>
+			<tr style="color:white ">
 				<th>Solutions</th>
 				<th>Doctor_id</th>
 				<th>Patient_id</th>
@@ -30,3 +33,4 @@
 
 </body>
 </html>
+{% endblock %}

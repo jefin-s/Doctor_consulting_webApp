@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% extends 'temp/patientbase.html' %}
+{% block base %}
+
+<html>
+<head>
+	<title>Patient_Details</title>
+</head>
+<body>
+<center>
+	<h2>Update Patient profile </h2>
+	<form>
+	<table>
+		<tr>
+			<td>
+				<h4>Enter Your name:</h4>
+
+			</td>
+			<td>
+				<input type="name" name="patient_name" value="{{ s.patient_name }}">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Enter Your PhoneNo:</h4>
+
+			</td>
+			<td>
+				<input type="text" name="patient_phone" value="{{ s.phone }}">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Enter Your Email:</h4>
+
+			</td>
+			<td>
+				<input type="Email" name="patient_email" value="{{ s.email }}">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Gender</h4>
+
+			</td>
+			<td>
+				<input type="radio" name="gender" value="male">Male
+		
+			
+				<input type="radio" name="gender" value="female">Female
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>
+					Username:
+				</h4>
+			</td>
+			<td>
+				<input type="name" name="Usern_ame" value="{{ s.username }}">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>
+					Password:
+				</h4>
+			</td>
+			<td>
+				<input type="Password" name="Usern_ame" value="{{ s.password }}">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="submit" value="submit">
+			</td>
+		</tr>
+	</table>
+</form>
+</center>
+</body>
+</html>
+{% endblock %}

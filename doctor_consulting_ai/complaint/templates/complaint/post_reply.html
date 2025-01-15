@@ -1,11 +1,18 @@
 <!DOCTYPE html>
+{% extends 'temp/adminbase.html' %}
 <html>
+{% block base %}
+
+
 <head>
 	<title>postreply</title>
 </head>
 <body>
 	<h1> Post Reply</h1>
 <table>
+    <form method="post">
+        {% csrf_token %}
+
 	<tr>
 		<td>
 			<h3>Enter Your Reply :</h3>
@@ -20,5 +27,7 @@
 		</td>
 	</tr>
 </table>
+ </form>
 </body>
 </html>
+{% endblock %}

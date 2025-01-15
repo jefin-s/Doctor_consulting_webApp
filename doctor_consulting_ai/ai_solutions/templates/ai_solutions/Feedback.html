@@ -1,3 +1,5 @@
+{% extends 'temp/Doctorbase.html' %}
+{% block base %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +8,7 @@
 </head>
 <body>
 <center>
-	<h1>Feedback Section....!</h1>
+	<h5 style="font-family:'Arial'">Feedback Section</h5>
 <form method="post">
     {% csrf_token %}
 	
@@ -15,7 +17,7 @@
 		<tr>
 			
 			<td>
-				<h5>
+				<h5 style="font-family:'Arial'">
 					Add Solutions
 				</h5>
 			</td>
@@ -28,7 +30,7 @@
 
 		<tr>
 			<td>
-			<h5>
+			<h5 style="font-family:'Arial'">
 				patient Name
 			</h5>
 </td>
@@ -51,3 +53,4 @@
 </center>
 </body>
 </html>
+{% endblock %}

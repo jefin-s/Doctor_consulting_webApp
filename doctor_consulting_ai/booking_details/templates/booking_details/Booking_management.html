@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+{% extends 'temp/Doctorbase.html' %}
+{% block base %}
+
+
 <html>
 <head>
 	<title>Booking Mangement</title>
@@ -8,26 +12,31 @@
 <h1>
 	Manage the Booking
 </h1>
-<p>Doctor Can only Manage the Booking</p>
+<p style="color: #343a40">Doctor Can only Manage the Booking</p>
 <table border="1">
-		<tr>
+		<tr style="color: white">
 			<th>Booking_id</th>
 			<th>Booking_date</th>
 			<th>Time</th>
 			<th>doctor_id</th>
 			<th>Phone</th>
+            <th>pateint_id</th>
 			<th>Status</th>
+
+
 		</tr>
     {% for i in book %}
-		<tr>
-			<td>{{i.doctor_id}}</td>
+		<tr style="color: white">
+            <td>{{ i.booking_id }}</td>
 			<td>{{ i.booking_date }}</td>
 			<td>{{ i.booking_time }}</td>
-			<td>{{ i.booking_id }}</td>
-			<td></td>
-			<td></td>
-			<td><a href="">accept</a></td>
-			<td><a href="">reject</a></td>
+
+            <td>{{i.doctor_id}}</td>
+            <td>{{ i.booking_id}}</td>
+			<td>{{ i.patient_id }}</td>
+			<td>{{ i.status }}</td>
+			<td><a href="/booking_details/acpt_bk/{{ i.booking_id}}" class="btn-close-white">accept</a></td>
+			<td><a href="/booking_details/rjct_bk/{{ i.booking_id }}" class="btn-close-white">reject</a></td>
 
 
 
@@ -37,3 +46,4 @@
 	</center>
 </body>
 </html>
+{% endblock %}

@@ -1,5 +1,9 @@
 <!DOCTYPE html>
+{% extends 'temp/Doctorbase.html' %}
+{% block base %}
 <html>
+
+
 <head>
 	<title>
 		view complaint
@@ -7,26 +11,27 @@
 </head>
 <body>
 	<center>
-		<h1>
-			View the Complaint from Patient -Doctor
-		</h1>
-		<table border="2">
-		<tr>
+		<h4>
+			Complaint from Patient
+		</h4>
+		<table border="2" class="table table-striped" style="color: white">
+		<tr style="color: white">
 			<th>complaint_name</th>
 			<th>Doctor_id</th>
 			<th>Date</th>
 			<th>Time</th>
 			<th>Patient_id</th>
-			<th>Status</th>
+			<th>Reply</th>
 		</tr>
-		<tr>
-            {%for i in view%}
+             {%for i in view%}
+		<tr style="color: white">
+
 			<td>{{ i.complaints}}</td>
 			<td>{{ i.doctor_id }}</td>
 			<td>{{ i.date }}</td>
 			<td>{{ i.time }}</td>
 			<td>{{ i.patient_id }}</td>
-			<td></td>
+			<td>{{ i.complaint_reply }}</td>
 			
 
 		</tr>
@@ -36,3 +41,4 @@
 
 </body>
 </html>
+{% endblock %}

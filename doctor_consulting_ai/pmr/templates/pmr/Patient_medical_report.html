@@ -1,5 +1,8 @@
 <!DOCTYPE html>
+{% extends 'temp/Doctorbase.html' %}
 <html>
+{% block base %}
+
 <head>
 	<title>PMR</title>
 </head>
@@ -30,8 +33,10 @@
 				</td>
 
 				<td>
-					<select>
-						<option></option>
+					<select name="pr">
+                        {% for i in x %}
+						<option value="{{ i.patient_id }}">{{ i.patient_name }}</option>
+                        {% endfor %}
 					</select>
 				</td>
       			</tr>
@@ -46,3 +51,4 @@
 </center>
 </body>
 </html>
+{% endblock %}

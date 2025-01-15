@@ -27,3 +27,17 @@ def manage_doctor(request):
     }
 
     return  render(request,'doctor/manage_doctor.html',mng_doctor)
+
+
+def accept_doctor(request,idd):
+    d=Doctor.objects.get(doctor_id=idd)
+    d.status='Accepted'
+    d.save()
+    return manage_doctor(request)
+
+
+def reject_doctor(request,idd):
+    d=Doctor.objects.get(doctor_id=idd)
+    d.status="Reject"
+    d.save()
+    return  manage_doctor(request)

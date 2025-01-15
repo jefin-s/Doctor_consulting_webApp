@@ -1,5 +1,8 @@
 <!DOCTYPE html>
+{% extends 'temp/patientbase.html' %}
 <html>
+{% block base %}
+
 <head>
 	<title>
 		Complaint
@@ -14,9 +17,9 @@
 			
 			<tr>
 				<td>
-					<h3>
+					<h6>
 					Please enter your complaint:-
-				</h3>
+				</h6>
 				</td>
 				<td>
 					<textarea cols="30" rows="10" name="cmp" placeholder="enter your complaint">
@@ -29,7 +32,7 @@
 				
 
 				<td>
-					Doctorname:
+					<h6>Doctorname:-</h6>
 				</td>
 				<td>
 					<select>
@@ -53,3 +56,4 @@
 </center>
 </body>
 </html>
+{% endblock %}

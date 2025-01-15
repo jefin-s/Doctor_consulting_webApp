@@ -1,31 +1,37 @@
+{% extends 'temp/adminbase.html' %}
+{% block base %}
+
 <!DOCTYPE html>
+
 <html>
+
+
+
 <head>
-	<title>Manage Patient</title>
+	<title>Manage  Complaint</title>
 </head>
 <body>
 <center>
-	<h1>Manage Patient</h1>
-	<table border="5">
-		<tr>
+	<h1>Manage Complaint</h1>
+	<table border="5" class="table table-striped" style="color: white">
+		<tr style="color: white">
 			<th>Complaint_name</th>
 			<th>Doctor_id</th>
 			<th>Date</th>
 			<th>Time</th>
 			<th>Pateint_id</th>
+            <th>Reply</th>
 			
 		</tr>
         {% for i in manage%}
-		<tr>
+		<tr style="color:white">
 			<td>{{ i.complaints}}</td>
 			<td>{{ i.doctor_id }}</td>
 			<td>{{ i.date }}</td>
 			<td>{{ i.time }}</td>
 			<td>{{ i.patient_id }}</td>
-			<td></td>
-            <td></td>
-
-			<td><a href="">reply</a></td>
+            <td>{{ i.complaint_reply }}</td>
+			<td><a href="/complaint/reply_complaint/{{ i.complaint_id }}" class="btn-close-white">Reply</a></td>
 			
 
 		</tr>
@@ -34,3 +40,4 @@
 </center>
 </body>
 </html>
+{% endblock %}

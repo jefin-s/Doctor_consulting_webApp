@@ -1,12 +1,16 @@
 <!DOCTYPE html>
+{% extends 'temp/patientbase.html' %}
+{% block base %}
+
+
 <html>
 <head>
 	<title>Booking Section</title>
 </head>
 <body>
-	<center><h1>
+	<center><h4 style="font-family: 'Corbel'">
 	Book Your Slot
-</h1>
+</h4>
 <form method="post">
 	{% csrf_token%}
 <table>
@@ -14,13 +18,13 @@
 	<tr>
 		
 		<td>
-			<h4>
-			Please Select the Date :-
+			<h4 style="font-family: 'Corbel'">
+			Select the Date :-
 			</h4>
 		</td>
      <td>
 	
-<input type="Date" name="date">
+<input type="date" name="date">
 
 </td>
 	</tr>
@@ -29,7 +33,7 @@
 		
 		<td>
 			
-			<h4>
+			<h4 style="font-family: 'Corbel'">
 				Select Doctor's : -
 			</h4>
 
@@ -44,18 +48,18 @@
 
 	<tr>
 		<td>
-			<h4>
-				Select Your Time : -
+			<h4 style="font-family: 'Corbel'">
+				Select  Time : -
 			</h4>
 		</td>
         <td>
         	<input type="time" name="time">
-        	\
+
         </td>
 	</tr>
 <tr>
 	<td>
-		<h2> SUNDAY Doctor is leave</h2>
+		<h1 style="font-family: 'Corbel'"> SUNDAY Doctor is leave</h1>
 
 	</td>
 </tr>
@@ -78,3 +82,4 @@
 
 </body>
 </html>
+{% endblock %}

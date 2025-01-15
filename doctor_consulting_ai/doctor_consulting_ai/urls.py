@@ -27,5 +27,6 @@ urlpatterns = [
     url('notifications/', include('notifications.url')),
     url('patient/', include('patient.url')),
     url('pmr/', include('pmr.url')),
+    url('temp/',include('temp.url')),
 
 ]

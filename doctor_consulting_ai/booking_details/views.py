@@ -37,3 +37,17 @@ def view_booking_details_patient(request):
         'det_pat': b1
     }
     return render(request,'booking_details/view_booking_details_patient.html',booking_det_pat)
+
+
+def booking_accept(request,idd):
+    b1=BookingDetails.objects.get(booking_id=idd)
+    b1.status="accepted"
+    b1.save()
+    return booking_management(request)
+
+
+def booking_reject(request,idd):
+    b1=BookingDetails.objects.get(booking_id=idd)
+    b1.status="reject"
+    b1.save()
+    return booking_management(request)

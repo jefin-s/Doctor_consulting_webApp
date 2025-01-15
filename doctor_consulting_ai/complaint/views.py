@@ -24,11 +24,12 @@ def manage_complaint(request):
     }
     return render(request,'complaint/manage_complaint.html',manage_complaint)
 
-def  reply_post_to_complaint(request):
-    # c = Complaint.objects.all()
-    # reply_complaint = {
-    #     'reply': c
-    # }
+def  reply_post_to_complaint(request,idd):
+    if request.method=='POST':
+        obj=Complaint.objects.get(complaint_id=idd)
+        obj.complaint_reply=request.POST.get('rply')
+        obj.save()
+        return manage_complaint(request)
     return render(request,'complaint/post_reply.html',)
 
 def view_complaint(request):
@@ -37,3 +38,5 @@ def view_complaint(request):
         'view': c
     }
     return render(request,'complaint/view_complaint.html',vieww_complaint)
+
+

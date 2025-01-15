@@ -1,5 +1,10 @@
 <!DOCTYPE html>
+{% extends 'temp/adminbase.html' %}
+
+
+
 <html>
+{% block base %}
 <head>
 	<title>
 		view Booking Status-Admin
@@ -10,8 +15,8 @@
 		<h1>
 			View the Booking Status -Admin
 		</h1>
-		<table border="2">
-		<tr>
+		<table border="2" class="table table-striped" style="color: white">
+		<tr style="color: white">
 			<th>Booking_id</th>
 			<th>Booking_date</th>
 			
@@ -21,7 +26,7 @@
 
     {% for i in st_list %}
 
-		<tr>
+		<tr style="color: white">
 			<td>{{ i.booking_id }}</td>
 			<td>{{ i.booking_time }}</td>
 			<td>{{ i.booking_date }}</td>
@@ -37,3 +42,4 @@
 
 </body>
 </html>
+{% endblock %}

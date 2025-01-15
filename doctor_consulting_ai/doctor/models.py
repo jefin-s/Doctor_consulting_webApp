@@ -2,6 +2,8 @@ from django.db import models
 
 # Create your models here.
 
+
+
 class Doctor(models.Model):
     doctor_id = models.AutoField(primary_key=True)
     doctor_name = models.CharField(max_length=45)
@@ -13,6 +15,7 @@ class Doctor(models.Model):
     date_of_birth = models.DateField(blank=True, null=True)
     gender = models.CharField(max_length=45, blank=True, null=True)
     email = models.CharField(max_length=45, blank=True, null=True)
+    status = models.CharField(max_length=45)
 
     class Meta:
         managed = False
