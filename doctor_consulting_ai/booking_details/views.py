@@ -1,19 +1,27 @@
 from django.shortcuts import render
 from booking_details.models import BookingDetails
+from doctor.models import Doctor
 import datetime
 # Create your views here.
 def booking_details(request):
+    s1=request.session['u_id']
+    ob=Doctor.objects.all()
+    context={
+        'bs':ob
+
+    }
     if request.method == 'POST':
         b1 = BookingDetails()
         b1.booking_date = request.POST.get('date')
-        b1.doctor_id = 1
+        b1.doctor_id = request.POST.get('doctor ')
+        b1.patient_id = s1
         b1.booking_time = request.POST.get('time')
         
         b1.save()
 
 
 
-    return  render(request, 'booking_details/Booking_details.html')
+    return  render(request, 'booking_details/Booking_details.html',context)
 
 
 def booking_management(request):

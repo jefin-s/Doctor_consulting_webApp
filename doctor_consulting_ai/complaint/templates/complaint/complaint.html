@@ -35,14 +35,16 @@
 					<h6>Doctorname:-</h6>
 				</td>
 				<td>
-					<select>
-						<option>A</option>
-						<option>B</option>
-						<option>C</option>
-						<option>D</option>
-						<option>E</option>
+					<select name="complaint">
+                       {% for i in c %}
+                        <option value="{{ i.doctor_id }}">
+                        {{ i.doctor_name }}
+
+                        </option>
+                        {% endfor %}
 					</select>
-				</td>
+
+                    </td>
 			</tr>
 
 			<tr>

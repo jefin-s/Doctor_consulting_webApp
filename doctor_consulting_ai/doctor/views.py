@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from doctor.models import Doctor
+from login.models import Login
 # Create your views here.
 def doctor_registeration(request):
     if request.method == 'POST':
@@ -15,8 +16,12 @@ def doctor_registeration(request):
         d.email=request.POST.get('doctor_email')
         d.save()
 
-
-
+        ob=Login()
+        ob.username=d.doctor_name
+        ob.password=d.email
+        ob.u_id=d.doctor_id
+        ob.type='doctor'
+        ob.save()
     return  render(request,'doctor/doctor.html')
 
 

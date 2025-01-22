@@ -7,9 +7,10 @@ def craete_pmr(request):
     context={
         'x':ob
     }
+    cpmr=request.session["u_id"]
     if request.method == 'POST':
         pmr=PatientMedicalReport()
-        pmr.doctor_id=1
+        pmr.doctor_id=cpmr
         pmr.pateint_id=request.POST.get('pr')
         pmr.pmr_details=request.POST.get('pmr_doc')
         pmr.save()

@@ -36,10 +36,11 @@
 </td>
 <td>
 	
-	<select>
-		<option>
-			
+	<select name="patient">
+        {% for i in sbox %}
+		<option value="{{ i.patient_id}}">{{ i.patient_name }}
 		</option>
+        {% endfor %}
 	</select>
 </td>
 		</tr>

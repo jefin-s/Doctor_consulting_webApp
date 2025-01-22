@@ -40,9 +40,15 @@
 		</td>
 
 		<td>
-			<select>
-				<option>Select Doctors</option>
+
+			<select name="doctor">
+                {% for i in bs %}
+				<option value="{{ i.doctor_id }}">
+                    {{ i.doctor_name }}
+                </option>
+                {% endfor%}
 			</select>
+
 		</td>
 	</tr>
 

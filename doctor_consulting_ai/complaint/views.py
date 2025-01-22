@@ -1,21 +1,25 @@
 from django.shortcuts import render
 from complaint.models import Complaint
 import  datetime
+from doctor.models import Doctor
 # Create your views here.
 def complaint_form(request):
+    cs=request.session['u_id']
+    ob=Doctor.objects.all()
+    context={
+            'c':ob
+        }
+
     if request.method == 'POST':
         c = Complaint()
         c.complaints = request.POST.get('cmp')
         c.complaint_reply = 'pending'
-        c.patient_id=1
-        c.doctor_id=1
+        c.patient_id=cs
+        c.doctor_id=request.POST.get('complaint')
         c.date=datetime.datetime.today()
         c.time=datetime.datetime.now()
         c.save()
-
-
-
-    return  render(request,'complaint/complaint.html')
+    return  render(request,'complaint/complaint.html',context)
 
 def manage_complaint(request):
     c = Complaint.objects.all()
