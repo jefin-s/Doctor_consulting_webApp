@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from booking_details.models import BookingDetails
 from doctor.models import Doctor
+from rest_framework.views import APIView,Response
+from django.http import  HttpResponse
+from booking_details.serializers import android_serializers
+
 import datetime
 # Create your views here.
 def booking_details(request):
@@ -59,3 +63,24 @@ def booking_reject(request,idd):
     b1.status="reject"
     b1.save()
     return booking_management(request)
+
+
+class view_booking_details_app(APIView):
+    def get(self,request):
+        obj=BookingDetails.objects.all()
+        ser=android_serializers(obj,many=True)
+        return Response(ser.data)
+
+
+
+class book_slot_app(APIView):
+    def post(self,request):
+        obj=BookingDetails()
+        obj.booking_date=request.data['booking_date']
+        obj.booking_time=request.data['booking_time']
+        obj.doctor_id=request.data['doctor_id']
+        obj.status='pending'
+
+        obj.save()
+
+        return HttpResponse('complaint')

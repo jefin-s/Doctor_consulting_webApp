@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from pmr.models import PatientMedicalReport
 from patient.models import Patient
+from rest_framework.views import APIView,Response
+from pmr.serailizers import android_serializers
+from django.http import HttpResponse
 # Create your views here.
 def craete_pmr(request):
     ob=Patient.objects.all()
@@ -35,4 +38,11 @@ def view_pmr_patient(request):
         'pmv':pmr
     }
     return  render(request,'pmr/view_pmr.html',pmr_v)
+
+
+class view_pmr_in_app(APIView):
+    def get(self,request):
+        obj=PatientMedicalReport.objects.all()
+        ser=android_serializers(obj,many=True)
+        return HttpResponse (ser.data)
 

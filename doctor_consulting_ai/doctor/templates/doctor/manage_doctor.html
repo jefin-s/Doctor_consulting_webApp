@@ -33,8 +33,8 @@
   			<td>{{ i.email }}</td>
   			<td>{{ i.phone }}</td>
   			<td>{{ i.status }}</td>
-  			<td><a href="/doctor/acpt_dr/{{ i.doctor_id }}">accept</a></td>
-			<td><a href="/doctor/rjct_dr/{{ i.doctor_id }}">reject</a></td>
+  			<td><a href="/doctor/acpt_dr/{{ i.doctor_id }}" class="btn-dark">accept</a></td>
+			<td><a href="/doctor/rjct_dr/{{ i.doctor_id }}" class="btn-dark">reject</a></td>
   		</tr>
         {% endfor %}
   	</table>

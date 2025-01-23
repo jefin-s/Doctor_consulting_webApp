@@ -6,5 +6,6 @@ urlpatterns=[
     url('mng_ptnt/',views.manage_patient),
     url('apt/(?P<idd>\w+)', views.accept),
     url('rjct/(?P<idd>\w+)',views.reject),
-    url('update_your_profile/',views.update_profile)
+    url('update_your_profile/',views.update_profile),
+    url('patient_reg_app/',views.patient_reg_app.as_view())
 ]

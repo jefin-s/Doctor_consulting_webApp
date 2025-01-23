@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from patient.models import Patient
+from rest_framework.views import  APIView,Response
+from patient.serializers import android_seriliazers
+from django.http import HttpResponse
 # Create your views here.
 def login_patient(request):
     if request.method == "POST":
@@ -53,3 +56,31 @@ def update_profile(request,):
         p1.status = 'pending'
         p1.save()
     return render(request,'patient/updte_ptn_profile.html', context)
+
+class patient_reg_app(APIView):
+    def post(self,request):
+        obj=Patient()
+        obj.patient_name = request.POST.get['patient_name']
+        obj.username = request.POST.get['username']
+        obj.password = request.POST.get['password']
+        obj.gender = request.POST.get['gender']
+        obj.email = request.POST.get['email']
+        obj.phone = request.POST.get['phone']
+        obj.status = 'pending'
+        obj.save()
+        return  HttpResponse ('patient_register')
+
+
+
+class updt_prfl_app(APIView):
+    def post(self,request):
+        obj = Patient()
+        obj.patient_name = request.POST.get['patient_name']
+        obj.username = request.POST.get['username']
+        obj.password = request.POST.get['password']
+        obj.gender = request.POST.get['gender']
+        obj.email = request.POST.get['email']
+        obj.phone = request.POST.get['phone']
+        obj.status = 'pending'
+        obj.save()
+        return HttpResponse('update_profile')

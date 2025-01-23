@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from ai_solutions.models import AiSolutions
 from patient.models import Patient
+from rest_framework.views import APIView,Response
+from ai_solutions.serilaisers import android_serializers
+from django.http import HttpResponse
+
 # Create your views here.
 def feedback(request):
     ss=request.session['u_id']
@@ -23,3 +27,8 @@ def viewsolution(request):
         'a':obj
     }
     return render(request, 'ai_solutions/view_solutions.html', context)
+class solution_view(APIView):
+    def get(self,request):
+        obj=AiSolutions.objects.all()
+        ser=android_serializers(obj,many=True)
+        return Response(ser.data)

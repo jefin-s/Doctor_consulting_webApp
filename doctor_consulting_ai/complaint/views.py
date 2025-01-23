@@ -2,6 +2,9 @@ from django.shortcuts import render
 from complaint.models import Complaint
 import  datetime
 from doctor.models import Doctor
+from rest_framework.views import APIView,Response
+from django.http import  HttpResponse
+from complaint.serializers import android_serilaizers
 # Create your views here.
 def complaint_form(request):
     cs=request.session['u_id']
@@ -43,4 +46,15 @@ def view_complaint(request):
     }
     return render(request,'complaint/view_complaint.html',vieww_complaint)
 
+class compaint_app(APIView):
+    def post(self,request):
+        obj=Complaint()
+        obj.complaints=request.data['Complaint']
+        obj.complaint_reply='pending'
+        obj.doctor_id=1
+        obj.patient_id=1
+        obj.date=datetime.datetime.today()
+        obj.time=datetime.datetime.now()
+        obj.save()
 
+        return HttpResponse('complaint')

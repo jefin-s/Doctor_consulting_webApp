@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from notifications.models import Notification
 import  datetime
+from rest_framework.views import APIView,Response
+from notifications.serializers import android_serializers
+from django.http import  HttpResponse
 from doctor.models import Doctor
 # Create your views here.
 def post_notrification(request):
@@ -22,3 +25,9 @@ def view_notifications(request):
         'ntv': n1
     }
     return  render(request,'notifications/view_notification.html',not_view)
+
+class view_notfn_app(APIView):
+    def get(self,request):
+        obj=Notification.objects.all()
+        ser=android_serializers(obj,many=True)
+        return Response(ser.data)

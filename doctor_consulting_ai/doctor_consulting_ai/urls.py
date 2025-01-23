@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
 
+from temp import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('ai_solutions/', include('ai_solutions.url')),
@@ -28,5 +30,6 @@ urlpatterns = [
     url('patient/', include('patient.url')),
     url('pmr/', include('pmr.url')),
     url('temp/',include('temp.url')),
+    url('$',views.home)
 
 ]
