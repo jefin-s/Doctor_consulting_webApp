@@ -9,13 +9,39 @@
 	<title>
 		view Booking Status-Admin
 	</title>
+    <style>
+        table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #333;
+            margin: 25px;
+                font-family: Arial;
+
+
+}
+
+tr:hover {
+  background-color: green;
+}
+
+h1{
+
+	font-family: arial;
+	font-weight: bolder;
+    color: white;
+    width: 800px;
+}
+    tr a{
+     color: white;
+        }
+    </style>
 </head>
 <body>
 	<center>
 		<h1>
 			View the Booking Status -Admin
 		</h1>
-		<table border="2" class="table table-striped" style="color: white">
+		<table border="2" class="table table-striped table-bordered" style="color: white">
 		<tr style="color: white">
 			<th>Booking_id</th>
 			<th>Booking_date</th>
@@ -30,10 +56,10 @@
 			<td>{{ i.booking_id }}</td>
 			<td>{{ i.booking_time }}</td>
 			<td>{{ i.booking_date }}</td>
-			<td>{{ i.doctor_id }}</td>
-			<td></td>
-			<td></td>
-			
+			<td>{{ i.doctor.doctor_name }}</td>
+{#			<td></td>#}
+{#			<td></td>#}
+{#			#}
 
 		</tr>
             {% endfor %}

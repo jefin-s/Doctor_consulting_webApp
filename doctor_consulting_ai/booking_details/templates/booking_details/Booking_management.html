@@ -6,21 +6,57 @@
 <html>
 <head>
 	<title>Booking Mangement</title>
+    <style>
+          	table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid white;
+            margin: 25px;
+                font-family: Arial;
+                text-align: center;
+
+
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  font-family: arial;
+}
+
+
+tr:hover {
+  background-color: green;
+}
+
+h1{
+
+	font-family: arial;
+	font-weight: bolder;
+    color: white;
+    width: 600px;
+}
+    tr a{
+     color: white;
+        }
+    </style>
+
 </head>
 <body>
 	<center>
 <h1>
 	Manage the Booking
 </h1>
-<p style="color: #343a40">Doctor Can only Manage the Booking</p>
-<table border="1">
+{#<p style="color: #343a40">Doctor Can only Manage the Booking</p>#}
+<table border="1" class="table-striped table-bordered">
 		<tr style="color: white">
-			<th>Booking_id</th>
-			<th>Booking_date</th>
+			<th>Booking ID</th>
+			<th>Booking Date</th>
 			<th>Time</th>
-			<th>doctor_id</th>
+			<th>Doctor ID</th>
 			<th>Phone</th>
-            <th>pateint_id</th>
+            <th>Patient ID</th>
 			<th>Status</th>
 
 
@@ -35,8 +71,9 @@
             <td>{{ i.booking_id}}</td>
 			<td>{{ i.patient_id }}</td>
 			<td>{{ i.status }}</td>
-			<td><a href="/booking_details/acpt_bk/{{ i.booking_id}}" class="btn-close-white">accept</a></td>
-			<td><a href="/booking_details/rjct_bk/{{ i.booking_id }}" class="btn-close-white">reject</a></td>
+{#			<td><a href="/booking_details/acpt_bk/{{ i.booking_id}}" >accept</a></td>#}
+            <td><a href="/pmr/crt_pmr/{{ i.pmr_id }}">Accept</a></td>
+			<td><a href="/booking_details/rjct_bk/{{ i.booking_id }}">reject</a></td>
 
 
 

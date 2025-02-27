@@ -6,11 +6,65 @@
 
 <head>
 	<title>PMR</title>
+
+    <style>
+
+         input, select {
+            {#width: 100%;#}
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+            font-size: 16px;
+
+        }
+
+        label{
+            color: black
+        ;
+        }
+         input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+     h4{
+
+         font-family: Arial;
+
+
+
+     }
+
+         textarea {
+            width: 400px;
+            height: 150px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid black;
+            border-radius: 8px;
+            background-color: #ffffff;
+            resize: none; /* Prevent resizing */
+            transition: 0.3s ease-in-out;
+        }
+
+        /* Focus Effect */
+        textarea:focus {
+            outline: none;
+            border-color: #0056b3;
+            box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
+        }
+
+        /* Placeholder Styling */
+        textarea::placeholder {
+            color: #999;
+            font-style: italic;
+
+</style>
 </head>
 <body>
 <center>
 	<h1>
-		 Update Patient Medical Report
+		 Update
 	</h1>
 
 	<form method="post">
@@ -19,19 +73,19 @@
 		<table>
 			<tr>
 				<td>
-					<h4>Add PMR :</h4>
+					<label>Add PMR :</label>
 				</td>
 				<td>
-					<input type="file" name="upd">
+                    <textarea name="upd" id="" cols="30" rows="10"></textarea>
 				</td>
 
 			</tr>
 
 			<tr>
 				<td>
-					<h5>
+					<label>
 						Patient Name:
-					</h5>
+					</label>
 				</td>
 
 				<td>

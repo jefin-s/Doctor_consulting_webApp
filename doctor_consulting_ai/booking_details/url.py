@@ -6,6 +6,10 @@ urlpatterns=[
     url('mng_bkng/',views.booking_management),
     url('bkng_status_admin/',views.booking_status_admin),
     url('bkng_details_pateint',views.view_booking_details_patient),
-    url('acpt_bk/(?P<idd>\w+)',views.booking_accept),
-    url('rjct_bk/(?P<idd>\w+)',views.booking_reject)
+    # url('acpt_bk/(?P<idd>\w+)',views.booking_accept),
+    url('rjct_bk/(?P<idd>\w+)',views.booking_reject),
+
+
+    url('stat/',views.view_booking_details_app.as_view()),
+    url('book/',views.book_slot_app.as_view())
  ]

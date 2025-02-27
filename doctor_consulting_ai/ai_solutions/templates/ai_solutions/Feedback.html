@@ -5,10 +5,62 @@
 <head>
 	<title> Feedback </title>
 
+    <style>
+          input, select {
+            {#width: 100%;#}
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+            font-size: 16px;
+
+        }
+
+        label{
+            color: black
+        ;
+        }
+         input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+     h1{
+         color: white;
+         width: 425px;
+         font-family: Arial;
+
+
+     }
+
+         textarea {
+            width: 400px;
+            height: 150px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid black;
+            border-radius: 8px;
+            background-color: #ffffff;
+            resize: none; /* Prevent resizing */
+            transition: 0.3s ease-in-out;
+        }
+
+        /* Focus Effect */
+        textarea:focus {
+            outline: none;
+            border-color: #0056b3;
+            box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
+        }
+
+        /* Placeholder Styling */
+        textarea::placeholder {
+            color: #999;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
 <center>
-	<h5 style="font-family:'Arial'">Feedback Section</h5>
+	<h1 style="font-family:'Arial'">Feedback Section</h1>
 <form method="post">
     {% csrf_token %}
 	
@@ -17,9 +69,9 @@
 		<tr>
 			
 			<td>
-				<h5 style="font-family:'Arial'">
+				<label>
 					Add Solutions
-				</h5>
+                </label>
 			</td>
 			<td>
 				<textarea cols="30" rows="6" placeholder="Add your Feedback" name="solution">
@@ -30,9 +82,9 @@
 
 		<tr>
 			<td>
-			<h5 style="font-family:'Arial'">
+			<label>
 				patient Name
-			</h5>
+			</label>
 </td>
 <td>
 	

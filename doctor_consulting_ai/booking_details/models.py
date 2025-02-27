@@ -13,6 +13,7 @@ class BookingDetails(models.Model):
     status = models.CharField(max_length=45)
     # patient_id = models.IntegerField(blank=True, null=True)
     patient=models.ForeignKey(Patient,on_delete=models.CASCADE)
+    pmr_id = models.CharField(max_length=45)
 
     class Meta:
         managed = False

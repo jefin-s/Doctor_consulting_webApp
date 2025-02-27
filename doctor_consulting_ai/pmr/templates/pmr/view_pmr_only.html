@@ -1,0 +1,46 @@
+{% extends 'temp/patientbase.html' %}
+{% block base%}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Only</title>
+</head>
+<body>
+<center>
+	<h1>
+		View Patient Medical Report
+	</h1>
+
+
+		<table border="2" class="table table-striped" style="color: white">
+		<tr style="color: white ">
+
+			<th>Doctor_id</th>
+
+			<th>Patient_id</th>
+            <th>PMR_details</th>
+
+		</tr>
+            {% for i in pmv %}
+		<tr>
+			<td>{{ i.doctor_id }}</td>
+			<td>{{ i.pateint_id }}</td>
+			<td>{{ i.pmr_details }}</td>
+{#			<td> <a href="/pmr/updt_pmr/{{ i.pmr_id }}" class=" btn-close-white">Update</a> </td>#}
+
+
+
+		</tr>
+            {% endfor %}
+	</table>
+
+
+
+
+</center>
+
+</body>
+</html>
+{% endblock %}

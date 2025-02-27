@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from doctor.models import Doctor
 from login.models import Login
+from django.http import HttpResponseRedirect
 # Create your views here.
 def doctor_registeration(request):
     if request.method == 'POST':
@@ -35,14 +36,21 @@ def manage_doctor(request):
 
 
 def accept_doctor(request,idd):
-    d=Doctor.objects.get(doctor_id=idd)
+    d=Doctor.objects.get(pmr_id=idd)
     d.status='Accepted'
     d.save()
     return manage_doctor(request)
-
 
 def reject_doctor(request,idd):
     d=Doctor.objects.get(doctor_id=idd)
     d.status="Reject"
     d.save()
     return  manage_doctor(request)
+
+#
+# def show(request):
+#     d=Doctor.objects.get()
+#     show_dr={
+#         'show_dr':d
+#     }
+#     return

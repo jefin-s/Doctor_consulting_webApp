@@ -17,7 +17,7 @@ def booking_details(request):
     if request.method == 'POST':
         b1 = BookingDetails()
         b1.booking_date = request.POST.get('date')
-        b1.doctor_id = request.POST.get('doctor ')
+        b1.doctor_id = request.POST.get('doctor')
         b1.patient_id = s1
         b1.booking_time = request.POST.get('time')
         
@@ -51,12 +51,12 @@ def view_booking_details_patient(request):
     return render(request,'booking_details/view_booking_details_patient.html',booking_det_pat)
 
 
-def booking_accept(request,idd):
-    b1=BookingDetails.objects.get(booking_id=idd)
-    b1.status="accepted"
-    b1.save()
-    return booking_management(request)
-
+# def booking_accept(request,idd):
+#     b1=BookingDetails.objects.get(booking_id=idd)
+#     b1.status="accepted"
+#     b1.save()
+#     return booking_management(request)
+#
 
 def booking_reject(request,idd):
     b1=BookingDetails.objects.get(booking_id=idd)
@@ -78,9 +78,7 @@ class book_slot_app(APIView):
         obj=BookingDetails()
         obj.booking_date=request.data['booking_date']
         obj.booking_time=request.data['booking_time']
-        obj.doctor_id=request.data['doctor_id']
+        obj.doctor_id=1
         obj.status='pending'
-
         obj.save()
-
         return HttpResponse('complaint')

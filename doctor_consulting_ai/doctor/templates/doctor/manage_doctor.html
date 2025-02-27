@@ -9,6 +9,36 @@
 	<title>
 		Manage doctor
 	</title>
+    <style>
+
+
+        	table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #333;
+            margin: 25px;
+                font-family: Arial;
+
+
+}
+
+tr:hover {
+  background-color: green;
+}
+
+h1{
+
+	font-family: arial;
+	font-weight: bolder;
+    color: white;
+    width: 800px;
+}
+    tr a{
+     color: white;
+        }
+
+    </style>
+
 </head>
 <body>
   <center>
@@ -16,9 +46,9 @@
   		Manage Doctor
   	</h1>
 
-  	<table border="2" class="table table-striped" style="color: white">
+  	<table border="2" class="table table-striped table-bordered" style="color: white">
   		<tr style="color: white">
-  			<th>Doctor_name</th>
+  			<th>Doctor Name</th>
   			<th>D.O.B</th>
   			<th>Gender</th>
   			<th>Email</th>
@@ -33,8 +63,8 @@
   			<td>{{ i.email }}</td>
   			<td>{{ i.phone }}</td>
   			<td>{{ i.status }}</td>
-  			<td><a href="/doctor/acpt_dr/{{ i.doctor_id }}" class="btn-dark">accept</a></td>
-			<td><a href="/doctor/rjct_dr/{{ i.doctor_id }}" class="btn-dark">reject</a></td>
+  			<td><a href="/doctor/acpt_dr/{{ i.doctor_id }}" >accept</a></td>
+			<td><a href="/doctor/rjct_dr/{{ i.doctor_id }}" >reject</a></td>
   		</tr>
         {% endfor %}
   	</table>

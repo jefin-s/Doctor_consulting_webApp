@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-_dcg#xjwlu&rn*&&gq8&g41bt*h3k847vjdc1i&@))52r)@b&a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.55']
+ALLOWED_HOSTS = ['192.168.43.90','192.168.1.65','192.168.155.90','192.168.1.8','172.20.10.2']
 
 
 # Application definition
@@ -58,8 +58,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
-
+CORS_ORIGIN_ALLOW_ALL=True
 ROOT_URLCONF = 'doctor_consulting_ai.urls'
 
 TEMPLATES = [

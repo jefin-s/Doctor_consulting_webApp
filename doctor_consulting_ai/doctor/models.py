@@ -17,6 +17,7 @@ class Doctor(models.Model):
     email = models.CharField(max_length=45, blank=True, null=True)
     status = models.CharField(max_length=45)
 
+
     class Meta:
         managed = False
         db_table = 'doctor'
