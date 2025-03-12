@@ -19,6 +19,8 @@ def login(request):
                 request.session['u_id']=uid
                 return HttpResponseRedirect('/temp/doctor/')
 
+
+
             else:
                 objlist="Username name or Password incorrect ... please try again"
                 context={

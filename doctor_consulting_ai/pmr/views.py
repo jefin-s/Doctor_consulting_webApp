@@ -27,7 +27,8 @@ def craete_pmr(request):
     return render(request,'pmr/Patient_medical_report.html',context)
 
 def pmr_view_only(request):
-    pmr=PatientMedicalReport.objects.all()
+    ss=request.session['u_id']
+    pmr=PatientMedicalReport.objects.filter(patient_id=ss)
     pmr_o={
         'pmv':pmr
     }
@@ -46,8 +47,8 @@ def update_pmr(request,idd):
     return render(request,'pmr/update_pmr.html',pmr_v)
 
 def view_pmr_patient(request):
-
-    pmr=PatientMedicalReport.objects.all()
+    ss=request.session['u_id']
+    pmr=PatientMedicalReport.objects.filter()
     pmr_v={
         'pmv':pmr
     }
