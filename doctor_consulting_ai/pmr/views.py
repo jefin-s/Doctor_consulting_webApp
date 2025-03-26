@@ -14,7 +14,7 @@ def craete_pmr(request):
     if request.method == 'POST':
         pmr=PatientMedicalReport()
         pmr.doctor_id=ss
-        pmr.name=request.POST.get('pr')
+        pmr.patient_id=request.POST.get('pr')
         pmr.age=request.POST.get('age')
         pmr.phone=request.POST.get('phone')
         pmr.address=request.POST.get('address')
@@ -35,13 +35,23 @@ def pmr_view_only(request):
     return render(request,'pmr/view_pmr_only.html',pmr_o)
 
 def update_pmr(request,idd):
+    ss = request.session["u_id"]
     pmr = PatientMedicalReport.objects.get(pmr_id=idd)
     pmr_v = {
         'pmv': pmr
     }
     if request.method == 'POST':
         pmr=PatientMedicalReport.objects.get(pmr_id=idd)
-        pmr.pmr_details=request.POST.get('upd')
+        pmr.doctor_id = ss
+        # pmr.patient_id = request.POST.get('pr')
+        pmr.age = request.POST.get('age')
+        pmr.phone = request.POST.get('phone')
+        pmr.address = request.POST.get('address')
+        pmr.category = request.POST.get('category')
+        pmr.gender = request.POST.get('gender')
+        pmr.date = request.POST.get('date')
+        pmr.time = request.POST.get('time')
+        pmr.prescription = request.POST.get('prescriptions')
         pmr.save()
         return view_pmr_patient(request)
     return render(request,'pmr/update_pmr.html',pmr_v)

@@ -15,7 +15,9 @@ class PatientMedicalReport(models.Model):
     date = models.DateField()
     time = models.TimeField()
     prescription = models.CharField(max_length=500)
-    patient_id = models.IntegerField(blank=True, null=True)
+    patient=models.ForeignKey(Patient,on_delete=models.CASCADE)
+    # patient_id = models.IntegerField(blank=True, null=True)
+
 
     class Meta:
         managed = False
