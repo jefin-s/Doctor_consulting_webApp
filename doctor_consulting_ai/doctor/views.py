@@ -54,3 +54,10 @@ def reject_doctor(request,idd):
 #         'show_dr':d
 #     }
 #     return
+from rest_framework.views import APIView,Response
+from doctor.serializers import android_serializer
+class view_doc(APIView):
+    def get(self,request):
+        obj=Doctor.objects.all()
+        ser=android_serializer(obj,many=True)
+        return Response(ser.data)

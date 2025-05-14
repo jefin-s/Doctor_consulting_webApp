@@ -8,8 +8,6 @@ class AiSolutions(models.Model):
     solutions = models.CharField(max_length=45)
     # doctor_id = models.IntegerField(blank=True, null=True)
     doctor=models.ForeignKey(Doctor, on_delete=models.CASCADE)
-
-
     # patient_id = models.IntegerField(blank=True, null=True)
     patient=models.ForeignKey(Patient,on_delete=models.CASCADE)
 

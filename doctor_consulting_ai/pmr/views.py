@@ -66,8 +66,8 @@ def view_pmr_patient(request):
 
 
 class view_pmr_app(APIView):
-    def get(self,request):
-        obj=PatientMedicalReport.objects.all()
+    def post(self,request):
+        obj=PatientMedicalReport.objects.filter(patient_id=request.data['kk'])
         ser=android_serializers(obj,many=True)
         return Response(ser.data)
 

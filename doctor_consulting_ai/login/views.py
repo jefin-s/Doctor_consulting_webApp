@@ -30,3 +30,20 @@ def login(request):
 
 
     return render (request,'login/login.html')
+
+from rest_framework.views import APIView,Response
+from django.http import HttpResponse
+from login.serializers import android_serialiser
+
+class loggg(APIView):
+    def get(self,request):
+        obj = Login.objects.all()
+        ser = android_serialiser(obj, many=True)
+        return Response(ser.data)
+
+    def post(self,request):
+        username = request.data['username']
+        password = request.data['password']
+        obj = Login.objects.filter(username=username, password=password)
+        ser = android_serialiser(obj, many=True)
+        return Response(ser.data)

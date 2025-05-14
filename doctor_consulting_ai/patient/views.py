@@ -53,7 +53,7 @@ def update_profile(request,):
         p1.status = 'pending'
         p1.save()
     return render(request,'patient/updte_ptn_profile.html', context)
-
+from login.models import Login
 class patient_reg_app(APIView):
     def post(self,request):
         obj=Patient()
@@ -65,19 +65,30 @@ class patient_reg_app(APIView):
         obj.phone = request.data['phone']
         obj.status = 'pending'
         obj.save()
+
+        ob=Login()
+        ob.username=obj.username
+        ob.password=obj.password
+        ob.u_id=obj.patient_id
+        ob.type='patient'
+        ob.save()
         return HttpResponse('patient_register')
 
-
-
-class updt_prfl_app(APIView):
+class viewww(APIView):
     def post(self,request):
-        obj = Patient()
-        obj.patient_name = request.data['patient_name']
-        obj.username = request.data['username']
-        obj.password = request.data['password']
-        obj.gender = request.data['gender']
-        obj.email = request.data['email']
-        obj.phone = request.data['phone']
-        obj.status = 'pending'
-        obj.save()
-        return HttpResponse('update_profile')
+        ob=Patient.objects.filter(patient_id=request.data['k'])
+        ser=android_seriliazers(ob,many=True)
+        return Response(ser.data)
+
+class update(APIView):
+    def post(self,request):
+        ob=Patient.objects.get(patient_id=request.data['k'])
+        ob.patient_name = request.data['name']
+        ob.username = request.data['username']
+        ob.password = request.data['password']
+        ob.gender = request.data['gender']
+        ob.email = request.data['email']
+        ob.phone = request.data['phone']
+        ob.status = 'pending'
+        ob.save()
+        return HttpResponse("yes")

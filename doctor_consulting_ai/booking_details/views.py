@@ -66,8 +66,8 @@ def booking_reject(request,idd):
 
 
 class view_booking_details_app(APIView):
-    def get(self,request):
-        obj=BookingDetails.objects.all()
+    def post(self,request):
+        obj=BookingDetails.objects.filter(patient_id=request.data['hhh'])
         ser=android_serializers(obj,many=True)
         return Response(ser.data)
 
@@ -78,7 +78,8 @@ class book_slot_app(APIView):
         obj=BookingDetails()
         obj.booking_date=request.data['booking_date']
         obj.booking_time=request.data['booking_time']
-        obj.doctor_id=1
+        obj.doctor_id=request.data['did']
+        obj.patient_id=request.data['kkk']
         obj.status='pending'
         obj.save()
         return HttpResponse('complaint')

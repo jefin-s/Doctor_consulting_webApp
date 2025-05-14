@@ -27,6 +27,7 @@ def viewsolution(request):
         'a':obj
     }
     return render(request, 'ai_solutions/view_solutions.html', context)
+
 class solution_view(APIView):
     def get(self,request):
         obj=AiSolutions.objects.all()

@@ -49,12 +49,12 @@ def view_complaint(request):
 class compaint_app(APIView):
     def post(self,request):
         obj=Complaint()
-        obj.complaints=request.data['Complaint']
+        obj.complaints=request.data['complaints']
         obj.complaint_reply='pending'
-        obj.doctor_id=1
-        obj.patient_id=1
+        obj.doctor_id=request.data['did']
+        obj.patient_id=request.data['pid']
         obj.date=datetime.datetime.today()
         obj.time=datetime.datetime.now()
         obj.save()
-
         return HttpResponse('complaint')
+
