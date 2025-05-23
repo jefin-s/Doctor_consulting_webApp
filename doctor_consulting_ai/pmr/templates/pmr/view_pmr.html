@@ -1,88 +1,157 @@
+{#    <!DOCTYPE html>#}
+{#    {% extends 'temp/Doctorbase.html' %}#}
+{#    <html>#}
+{#    {% block base %}#}
+{##}
+{#    <head>#}
+{#        <title>View PMR</title>#}
+{#        <style>#}
+{#      table {#}
+{#      width: 100%;#}
+{#      border-collapse: collapse;#}
+{#      border: 2px solid #333;#}
+{#                margin: 25px;#}
+{#                    font-family: Arial;#}
+{##}
+{##}
+{#    }#}
+{##}
+{#    tr:hover {#}
+{#      background-color: green;#}
+{#    }#}
+{##}
+{#    h1{#}
+{##}
+{#        font-family: arial;#}
+{#        font-weight: bolder;#}
+{#        color: white;#}
+{#        width: 800px;#}
+{#    }#}
+{#        tr a{#}
+{#         color: white;#}
+{#            }#}
+{#    </style>#}
+{#    </head>#}
+{#    <body>#}
+{#    <center>#}
+{#        <h1>#}
+{#            View Patient Medical Report#}
+{#        </h1>#}
+{##}
+{##}
+{#            <table border="2" class="table table-striped table-bordered" style="color: white">#}
+{#            <tr style="color: white ">#}
+{##}
+{#                <th>Name</th>#}
+{##}
+{#                <th>Age</th>#}
+{#                <th>phone</th>#}
+{##}
+{#                <th>Address</th>#}
+{##}
+{#                <th>Category</th>#}
+{#                <th>Gender</th>#}
+{##}
+{#                <th>Date</th>#}
+{##}
+{#                <th>Time</th>#}
+{#                <th>Prescription</th>#}
+{##}
+{##}
+{#            </tr>#}
+{#                {% for i in pmv %}#}
+{#            <tr>#}
+    {#			<td>{{ i.pmr_id}}</td>#}
+{#                <td>{{ i.patient.patient_name}}</td>#}
+{#                <td>{{ i.age}}</td>#}
+{#                <td>{{ i.phone}}#}
+{#                <td>{{ i.address}}</td>#}
+{#                <td>{{ i.category}}</td>#}
+{#                        <td>{{ i.gender}}</td>#}
+{#                <td>{{ i.date}}</td>#}
+{#                <td>{{ i.time}}</td>#}
+{#                <td>{{ i.prescription}}</td>#}
+{#                <td> <a href="/pmr/updt_pmr/{{ i.pmr_id }}" >Update</a> </td>#}
+{##}
+{##}
+{##}
+{#            </tr>#}
+{#                {% endfor %}#}
+{#        </table>#}
+{##}
+{##}
+{#    </body>#}
+{#    </html>#}
+{#    </center>#}
+{#    </body>#}
+{#    </html>#}
+{#    {% endblock %}#}
+{#{% extends 'temp/Doctorbase.html' %}#}
+{#{% block base %}#}
 <!DOCTYPE html>
-{% extends 'temp/Doctorbase.html' %}
-<html>
-{% block base %}
-
+<html lang="en">
 <head>
-	<title>View PMR</title>
-    <style>
-  table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 2px solid #333;
-            margin: 25px;
-                font-family: Arial;
-
-
-}
-
-tr:hover {
-  background-color: green;
-}
-
-h1{
-
-	font-family: arial;
-	font-weight: bolder;
-    color: white;
-    width: 800px;
-}
-    tr a{
-     color: white;
-        }
-</style>
+    <meta charset="UTF-8">
+    <title>View PMR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<center>
-	<h1>
-		View Patient Medical Report
-	</h1>
+<body class="bg-gray-100 text-gray-900 font-sans">
 
+    <!-- Back Button -->
+    <div class="w-full flex justify-end p-4">
+        <a href="javascript:history.back()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow">
+            ← Back
+        </a>
+    </div>
 
-		<table border="2" class="table table-striped table-bordered" style="color: white">
-		<tr style="color: white ">
+    <!-- Table Container -->
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-8 text-green-700">View Patient Medical Report</h1>
 
-			<th>Name</th>
-			
-			<th>Age</th>
-            <th>phone</th>
-
-			<th>Address</th>
-
-			<th>Category</th>
-            <th>Gender</th>
-
-			<th>Date</th>
-
-			<th>Time</th>
-            <th>Prescription</th>
-
-
-		</tr>
-            {% for i in pmv %}
-		<tr>
-{#			<td>{{ i.pmr_id}}</td>#}
-			<td>{{ i.patient.patient_name}}</td>
-			<td>{{ i.age}}</td>
-            <td>{{ i.phone}}
-            <td>{{ i.address}}</td>
-            <td>{{ i.category}}</td>
-            <td>{{ i.gender}}</td>
-            <td>{{ i.date}}</td>
-            <td>{{ i.time}}</td>
-            <td>{{ i.prescription}}</td>
-			<td> <a href="/pmr/updt_pmr/{{ i.pmr_id }}" >Update</a> </td>
-			
-			
-
-		</tr>
-            {% endfor %}
-	</table>
-	
+        <div class="overflow-x-auto bg-white rounded-lg shadow-md">
+            <table class="min-w-full divide-y divide-gray-200 text-sm text-center">
+                <thead class="bg-green-700 text-white uppercase text-sm font-semibold">
+                    <tr>
+                        <th class="px-4 py-3">Name</th>
+                        <th class="px-4 py-3">Age</th>
+                        <th class="px-4 py-3">Phone</th>
+                        <th class="px-4 py-3">Address</th>
+                        <th class="px-4 py-3">Category</th>
+                        <th class="px-4 py-3">Gender</th>
+                        <th class="px-4 py-3">Date</th>
+                        <th class="px-4 py-3">Time</th>
+                        <th class="px-4 py-3">Prescription</th>
+                        <th class="px-4 py-3">Update</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                    {% for i in pmv %}
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-4 py-2">{{ i.patient.patient_name }}</td>
+                        <td class="px-4 py-2">{{ i.age }}</td>
+                        <td class="px-4 py-2">{{ i.phone }}</td>
+                        <td class="px-4 py-2">{{ i.address }}</td>
+                        <td class="px-4 py-2">{{ i.category }}</td>
+                        <td class="px-4 py-2">{{ i.gender }}</td>
+                        <td class="px-4 py-2">{{ i.date }}</td>
+                        <td class="px-4 py-2">{{ i.time }}</td>
+                        <td class="px-4 py-2 max-w-xs truncate" title="{{ i.prescription }}">{{ i.prescription }}</td>
+                        <td class="px-4 py-2">
+                            <a href="/pmr/updt_pmr/{{ i.pmr_id }}" class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-sm">
+                                Update
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="10" class="py-6 text-center text-gray-500 font-semibold">No reports available.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 </body>
 </html>
-</center>
-</body>
-</html>
-{% endblock %}
+{#{% endblock %}#}

@@ -9,5 +9,7 @@ urlpatterns=[
     url('update_your_profile/',views.update_profile),
     url('patient_reg_app/',views.patient_reg_app.as_view()),
     url('sss/',views.viewww.as_view()),
-    url('update/',views.update.as_view())
+    url('update/',views.update.as_view()),
+    url('symptom/',views.sypmtoms.as_view())
+
 ]

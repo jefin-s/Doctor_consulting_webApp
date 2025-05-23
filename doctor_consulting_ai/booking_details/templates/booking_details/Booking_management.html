@@ -1,86 +1,155 @@
-<!DOCTYPE html>
-{% extends 'temp/Doctorbase.html' %}
-{% block base %}
-
-
-<html>
-<head>
-	<title>Booking Mangement</title>
-    <style>
-          	table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 2px solid white;
-            margin: 25px;
-                font-family: Arial;
-                text-align: center;
-
-
-}
-
-th, td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: center;
-  font-family: arial;
-}
-
-
-tr:hover {
-  background-color: green;
-}
-
-h1{
-
-	font-family: arial;
-	font-weight: bolder;
-    color: white;
-    width: 600px;
-}
-    tr a{
-     color: white;
-        }
-    </style>
-
-</head>
-<body>
-	<center>
-<h1>
-	Manage the Booking
-</h1>
+{#<!DOCTYPE html>#}
+{#{% extends 'temp/Doctorbase.html' %}#}
+{#{% block base %}#}
+{##}
+{##}
+{#<html>#}
+{#<head>#}
+{#	<title>Booking Mangement</title>#}
+{#    <style>#}
+{#          	table {#}
+{#  width: 100%;#}
+{#  border-collapse: collapse;#}
+{#  border: 2px solid white;#}
+{#            margin: 25px;#}
+{#                font-family: Arial;#}
+{#                text-align: center;#}
+{##}
+{##}
+{#}#}
+{##}
+{#th, td {#}
+{#  border: 1px solid #ccc;#}
+{#  padding: 10px;#}
+{#  text-align: center;#}
+{#  font-family: arial;#}
+{#}#}
+{##}
+{##}
+{#tr:hover {#}
+{#  background-color: green;#}
+{#}#}
+{##}
+{#h1{#}
+{##}
+{#	font-family: arial;#}
+{#	font-weight: bolder;#}
+{#    color: white;#}
+{#    width: 600px;#}
+{#}#}
+{#    tr a{#}
+{#     color: white;#}
+{#        }#}
+{#    </style>#}
+{##}
+{#</head>#}
+{#<body>#}
+{#	<center>#}
+{#<h1>#}
+{#	Manage the Booking#}
+{#</h1>#}
 {#<p style="color: #343a40">Doctor Can only Manage the Booking</p>#}
-<table border="1" class="table-striped table-bordered">
-		<tr style="color: white">
-			<th>Booking ID</th>
-			<th>Booking Date</th>
-			<th>Time</th>
-			<th>Doctor ID</th>
-			<th>Phone</th>
-            <th>Patient ID</th>
-			<th>Status</th>
-
-
-		</tr>
-    {% for i in book %}
-		<tr style="color: white">
-            <td>{{ i.booking_id }}</td>
-			<td>{{ i.booking_date }}</td>
-			<td>{{ i.booking_time }}</td>
-
-            <td>{{i.doctor_id}}</td>
-            <td>{{ i.booking_id}}</td>
-			<td>{{ i.patient.patient_name }}</td>
-			<td>{{ i.status }}</td>
+{#<table border="1" class="table-striped table-bordered">#}
+{#		<tr style="color: white">#}
+{#			<th>Booking ID</th>#}
+{#			<th>Booking Date</th>#}
+{#			<th>Time</th>#}
+{#			<th>Doctor ID</th>#}
+{#			<th>Phone</th>#}
+{#            <th>Patient ID</th>#}
+{#			<th>Status</th>#}
+{##}
+{##}
+{#		</tr>#}
+{#    {% for i in book %}#}
+{#		<tr style="color: white">#}
+{#            <td>{{ i.booking_id }}</td>#}
+{#			<td>{{ i.booking_date }}</td>#}
+{#			<td>{{ i.booking_time }}</td>#}
+{##}
+{#            <td>{{i.doctor_id}}</td>#}
+{#            <td>{{ i.booking_id}}</td>#}
+{#			<td>{{ i.patient.patient_name }}</td>#}
+{#			<td>{{ i.status }}</td>#}
 {#			<td><a href="/booking_details/acpt_bk/{{ i.booking_id}}" >accept</a></td>#}
-            <td><a href="/pmr/crt_pmr/{{ i.pmr_id }}">Accept</a></td>
-			<td><a href="/booking_details/rjct_bk/{{ i.booking_id }}">reject</a></td>
+{#            <td><a href="/pmr/crt_pmr/{{ i.pmr_id }}">Accept</a></td>#}
+{#			<td><a href="/booking_details/rjct_bk/{{ i.booking_id }}">reject</a></td>#}
+{##}
+{##}
+{##}
+{#		</tr>#}
+{#     {% endfor%}#}
+{#	</table>#}
+{#	</center>#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
+{#{% extends 'temp/Doctorbase.html' %}#}
+{#{% block base %}#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
 
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header with title and Back button -->
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold text-green-700">Manage Bookings</h1>
+            <a href="javascript:history.back()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded shadow">
+                ← Back
+            </a>
+        </div>
 
+        <div class="overflow-x-auto bg-white rounded-lg shadow-md">
+            <table class="min-w-full divide-y divide-gray-200 text-sm text-center">
+                <thead class="bg-green-600 text-white uppercase text-sm font-semibold">
+                    <tr>
+                        <th class="px-4 py-3">Booking ID</th>
+                        <th class="px-4 py-3">Date</th>
+                        <th class="px-4 py-3">Time</th>
+                        <th class="px-4 py-3">Doctor ID</th>
+                        <th class="px-4 py-3">Phone</th>
+                        <th class="px-4 py-3">Patient Name</th>
+                        <th class="px-4 py-3">Status</th>
+                        <th class="px-4 py-3">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                    {% for i in book %}
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-4 py-2">{{ i.booking_id }}</td>
+                        <td class="px-4 py-2">{{ i.booking_date }}</td>
+                        <td class="px-4 py-2">{{ i.booking_time }}</td>
+                        <td class="px-4 py-2">{{ i.doctor_id }}</td>
+                        <td class="px-4 py-2">{{ i.booking_id }}</td>
+                        <td class="px-4 py-2">{{ i.patient.patient_name }}</td>
+                        <td class="px-4 py-2">
+                            <span class="px-3 py-1 rounded-full text-white
+                                {% if i.status == 'Accepted' %}
+                                    bg-green-500
+                                {% elif i.status == 'Rejected' %}
+                                    bg-red-500
+                                {% else %}
+                                    bg-yellow-500
+                                {% endif %}
+                            ">
+                                {{ i.status }}
+                            </span>
+                        </td>
+                        <td class="px-4 py-2 flex justify-center gap-2">
+                            <a href="/pmr/crt_pmr/{{ i.pmr_id }}" class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-sm">Accept</a>
+                            <a href="/booking_details/rjct_bk/{{ i.booking_id }}" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm">Reject</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-		</tr>
-     {% endfor%}
-	</table>
-	</center>
 </body>
 </html>
-{% endblock %}

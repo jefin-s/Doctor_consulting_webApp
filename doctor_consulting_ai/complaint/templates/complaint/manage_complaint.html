@@ -1,71 +1,130 @@
-{% extends 'temp/adminbase.html' %}
-{% block base %}
+{#{% extends 'temp/adminbase.html' %}#}
+{#{% block base %}#}
+{##}
+{#<!DOCTYPE html>#}
+{##}
+{#<html>#}
+{##}
+{##}
+{##}
+{#<head>#}
+{#	<title>Manage  Complaint</title>#}
+{##}
+{#    <style>#}
+{##}
+{#        	table {#}
+{#  width: 100%;#}
+{#  border-collapse: collapse;#}
+{#  border: 2px solid #333;#}
+{#            margin: 25px;#}
+{#                font-family: Arial;#}
+{##}
+{##}
+{#}#}
+{##}
+{#tr:hover {#}
+{#  background-color: green;#}
+{#}#}
+{##}
+{#h1{#}
+{##}
+{#	font-family: arial;#}
+{#	font-weight: bolder;#}
+{#    color: white;#}
+{#    width: 800px;#}
+{#}#}
+{#    tr a{#}
+{#     color: white;#}
+{#        }#}
+{#    </style>#}
+{#</head>#}
+{#<body>#}
+{#<center>#}
+{#	<h1>Manage Complaint</h1>#}
+{#	<table border="5" class="table table-striped table-bordered" style="color: white">#}
+{#		<tr style="color: white">#}
+{#			<th>Complaint_name</th>#}
+{#			<th>Doctor_id</th>#}
+{#			<th>Date</th>#}
+{#			<th>Time</th>#}
+{#			<th>Pateint_id</th>#}
+{#            <th>Reply</th>#}
+{##}
+{#		</tr>#}
+{#        {% for i in manage%}#}
+{#		<tr style="color:white">#}
+{#			<td>{{ i.complaints}}</td>#}
+{#			<td>{{ i.doctor_id }}</td>#}
+{#			<td>{{ i.date }}</td>#}
+{#			<td>{{ i.time }}</td>#}
+{#			<td>{{ i.patient_id }}</td>#}
+{#            <td>{{ i.complaint_reply }}</td>#}
+{#			<td><a href="/complaint/reply_complaint/{{ i.complaint_id }}" class="btn-close-white">Reply</a></td>#}
+{##}
+{##}
+{#		</tr>#}
+{#        {% endfor %}#}
+{#	</table>#}
+{#</center>#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
 
+{#{% extends 'temp/adminbase.html' %}#}
+{#{% block base %}#}
 <!DOCTYPE html>
-
-<html>
-
-
-
+<html lang="en">
 <head>
-	<title>Manage  Complaint</title>
-
-    <style>
-
-        	table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 2px solid #333;
-            margin: 25px;
-                font-family: Arial;
-
-
-}
-
-tr:hover {
-  background-color: green;
-}
-
-h1{
-
-	font-family: arial;
-	font-weight: bolder;
-    color: white;
-    width: 800px;
-}
-    tr a{
-     color: white;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <title>Manage Complaint</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<center>
-	<h1>Manage Complaint</h1>
-	<table border="5" class="table table-striped table-bordered" style="color: white">
-		<tr style="color: white">
-			<th>Complaint_name</th>
-			<th>Doctor_id</th>
-			<th>Date</th>
-			<th>Time</th>
-			<th>Pateint_id</th>
-            <th>Reply</th>
-			
-		</tr>
-        {% for i in manage%}
-		<tr style="color:white">
-			<td>{{ i.complaints}}</td>
-			<td>{{ i.doctor_id }}</td>
-			<td>{{ i.date }}</td>
-			<td>{{ i.time }}</td>
-			<td>{{ i.patient_id }}</td>
-            <td>{{ i.complaint_reply }}</td>
-			<td><a href="/complaint/reply_complaint/{{ i.complaint_id }}" class="btn-close-white">Reply</a></td>
-			
+<body class="bg-gray-100 text-gray-900 font-sans">
 
-		</tr>
-        {% endfor %}
-	</table>
-</center>
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header with Back button -->
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold text-green-700">Manage Complaints</h1>
+            <a href="javascript:history.back()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded shadow">
+                ← Back
+            </a>
+        </div>
+
+        <div class="overflow-x-auto bg-white rounded-lg shadow-md">
+            <table class="min-w-full divide-y divide-gray-200 text-sm text-center">
+                <thead class="bg-green-600 text-white uppercase text-sm font-semibold">
+                    <tr>
+                        <th class="px-4 py-3">Complaint</th>
+                        <th class="px-4 py-3">Doctor ID</th>
+                        <th class="px-4 py-3">Date</th>
+                        <th class="px-4 py-3">Time</th>
+                        <th class="px-4 py-3">Patient ID</th>
+                        <th class="px-4 py-3">Reply</th>
+                        <th class="px-4 py-3">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                    {% for i in manage %}
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-4 py-2">{{ i.complaints }}</td>
+                        <td class="px-4 py-2">{{ i.doctor_id }}</td>
+                        <td class="px-4 py-2">{{ i.date }}</td>
+                        <td class="px-4 py-2">{{ i.time }}</td>
+                        <td class="px-4 py-2">{{ i.patient_id }}</td>
+                        <td class="px-4 py-2">{{ i.complaint_reply }}</td>
+                        <td class="px-4 py-2">
+                            <a href="/complaint/reply_complaint/{{ i.complaint_id }}"
+                               class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm">
+                                Reply
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </body>
 </html>
-{% endblock %}
+{#{% endblock %}#}

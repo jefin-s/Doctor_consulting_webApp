@@ -1,166 +1,250 @@
+{#<!DOCTYPE html>#}
+{##}
+{#{% extends 'temp/Doctorbase.html' %}#}
+{#<html>#}
+{#{% block base %}#}
+{##}
+{#<head>#}
+{#	<title>Doctor_registeration</title>#}
+{##}
+{#    <style>#}
+{##}
+{##}
+{##}
+{#        input, select {#}
+{#            width: 100%;#}
+{#            padding: 10px;#}
+{#            border: 1px solid black;#}
+{#            border-radius: 5px;#}
+{#            font-size: 16px;#}
+{##}
+{#        }#}
+{##}
+{#        label{#}
+{#            color: black#}
+{#        ;#}
+{#        }#}
+{#         input:focus {#}
+{#            border-color: #007bff;#}
+{#            outline: none;#}
+{#        }#}
+{##}
+{#     h1{#}
+{#         color: white;#}
+{#         width: 425px;#}
+{#         font-family: Arial;#}
+{##}
+{#     }#}
+{#    </style>#}
+{#</head>#}
+{#<body>#}
+{##}
+{#<center>#}
+{#	<h1>#}
+{#		Doctor Registeration#}
+{#	</h1>#}
+{##}
+{##}
+{#	<form method="post">#}
+{#        {% csrf_token %}#}
+{##}
+{#		<table>#}
+{##}
+{#			<tr>#}
+{#				<td>#}
+{#                    <label >Name : -</label>#}
+{#				</td>#}
+{##}
+{#				<td>#}
+{#					<input type="name" name="doctor_name">#}
+{#				</td>#}
+{#           <tr>#}
+{#				<td>#}
+{#					<label>Email : -</label>#}
+{#				</td>#}
+{##}
+{#				<td>#}
+{#					<input type="email" name="doctor_email">#}
+{#				</td>#}
+{##}
+{#			</tr>#}
+{#            <tr>#}
+{#			<td>#}
+{#				<label>Gender</label>#}
+{##}
+{#			</td>#}
+{#			<td style="color: black">#}
+{#				<input type="radio" name="gender" value="male">Male#}
+{##}
+{##}
+{#				<input type="radio" name="gender" value="female">Female#}
+{#			</td>#}
+{#		</tr>#}
+{#			</tr>#}
+{#			<tr>#}
+{#				<td>#}
+{#					<label>Category : -</label>#}
+{#				</td>#}
+{##}
+{#				<td>#}
+{#					<input type="name" name="doctor_category">#}
+{#				</td>#}
+{##}
+{#			</tr>#}
+{#			<tr>#}
+{#				<td>#}
+{#					<label>Experience :-</label>#}
+{#				</td>#}
+{##}
+{#				<td>#}
+{#					<input type="text" name="doctor_experience">#}
+{#				</td>#}
+{##}
+{#			</tr>#}
+{#			<tr>#}
+{#				<td>#}
+{#					<label>Phone No :-</label>#}
+{#				</td>#}
+{##}
+{#				<td>#}
+{#					<input type="text" name="doctor_phone">#}
+{#				</td>#}
+{##}
+{#			</tr>#}
+{#			<tr>#}
+{#				<td>#}
+{#					<label>Qualification:-</label>#}
+{#				</td>#}
+{##}
+{#				<td>#}
+{#					<input type="text" name="doctor_qualification">#}
+{#				</td>#}
+{##}
+{#			</tr>#}
+{##}
+{##}
+{#            <tr>#}
+{#				<td>#}
+{#					<label>D. O .B :-</label>#}
+{#				</td>#}
+{##}
+{#				<td>#}
+{#					<input type="date" name="date_of_birth">#}
+{#				</td>#}
+{##}
+{#			</tr>#}
+{##}
+{#			<tr>#}
+{#				<td>#}
+{#					<label>#}
+{#						Address:-#}
+{#					</label>#}
+{#				</td>#}
+{##}
+{#				<td>#}
+{#					<textarea cols="25" rows="5" name="doctor_address" placeholder="Enter your Valid Address">#}
+{##}
+{#					</textarea>#}
+{#				</td>#}
+{##}
+{#			</tr>#}
+{##}
+{#			<tr >#}
+{##}
+{#				<td >#}
+{#					<input type="submit" value="submit">#}
+{##}
+{#				</td>#}
+{##}
+{#			</tr>#}
+{#		</table>#}
+{##}
+{#	</form>#}
+{#</center>#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
+
+{#{% extends 'temp/Doctorbase.html' %}#}
+{#{% block base %}#}
 <!DOCTYPE html>
-
-{% extends 'temp/Doctorbase.html' %}
-<html>
-{% block base %}
-
+<html lang="en">
 <head>
-	<title>Doctor_registeration</title>
-
-    <style>
-
-
-
-        input, select {
-            {#width: 100%;#}
-            padding: 10px;
-            border: 1px solid black;
-            border-radius: 5px;
-            font-size: 16px;
-
-        }
-
-        label{
-            color: black
-        ;
-        }
-         input:focus {
-            border-color: #007bff;
-            outline: none;
-        }
-
-     h1{
-         color: white;
-         width: 425px;
-         font-family: Arial;
-
-     }
-    </style>
+    <meta charset="UTF-8">
+    <title>Doctor Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-	
-<center>
-	<h1>
-		Doctor Registeration
-	</h1>
+<body class="bg-gray-100 text-gray-900 font-sans">
 
+    <!-- Back Button -->
+    <div class="w-full flex justify-end p-4">
+        <a href="javascript:history.back()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow">
+            ← Back
+        </a>
+    </div>
 
-	<form method="post">
-        {% csrf_token %}
+    <!-- Form Container -->
+    <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md mt-8">
+        <h1 class="text-3xl font-bold text-center text-green-700 mb-6">Doctor Registration</h1>
 
-		<table>
+        <form method="post" class="space-y-6">
+            {% csrf_token %}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block font-semibold mb-1">Name</label>
+                    <input type="text" name="doctor_name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-green-500">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Email</label>
+                    <input type="email" name="doctor_email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-green-500">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Gender</label>
+                    <div class="flex items-center gap-4 mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="gender" value="male" class="mr-2"> Male
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="gender" value="female" class="mr-2"> Female
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Category</label>
+                    <input type="text" name="doctor_category" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-green-500">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Experience</label>
+                    <input type="text" name="doctor_experience" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-green-500">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Phone No</label>
+                    <input type="text" name="doctor_phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-green-500">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Qualification</label>
+                    <input type="text" name="doctor_qualification" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-green-500">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Date of Birth</label>
+                    <input type="date" name="date_of_birth" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-green-500">
+                </div>
+            </div>
 
-			<tr>
-				<td>
-                    <label >Name : -</label>
-				</td>
-				
-				<td>
-					<input type="name" name="doctor_name">
-				</td>
-           <tr>
-				<td>
-					<label>Email : -</label>
-				</td>
+            <div>
+                <label class="block font-semibold mb-1 mt-4">Address</label>
+                <textarea name="doctor_address" rows="4" placeholder="Enter your valid address" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-green-500"></textarea>
+            </div>
 
-				<td>
-					<input type="email" name="doctor_email">
-				</td>
+            <div class="flex justify-center">
+                <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded shadow">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
 
-			</tr>
-            <tr>
-			<td>
-				<label>Gender</label>
-
-			</td>
-			<td style="color: black">
-				<input type="radio" name="gender" value="male">Male
-
-
-				<input type="radio" name="gender" value="female">Female
-			</td>
-		</tr>
-			</tr>
-			<tr>
-				<td>
-					<label>Category : -</label>
-				</td>
-				
-				<td>
-					<input type="name" name="doctor_category">
-				</td>
-
-			</tr>
-			<tr>
-				<td>
-					<label>Experience :-</label>
-				</td>
-				
-				<td>
-					<input type="text" name="doctor_experience">
-				</td>
-
-			</tr>
-			<tr>
-				<td>
-					<label>Phone No :-</label>
-				</td>
-				
-				<td>
-					<input type="text" name="doctor_phone">
-				</td>
-
-			</tr>
-			<tr>
-				<td>
-					<label>Qualification:-</label>
-				</td>
-				
-				<td>
-					<input type="text" name="doctor_qualification">
-				</td>
-
-			</tr>
-
-
-            <tr>
-				<td>
-					<label>D. O .B :-</label>
-				</td>
-
-				<td>
-					<input type="date" name="date_of_birth">
-				</td>
-
-			</tr>
-
-			<tr>
-				<td>
-					<label>
-						Address:-
-					</label>
-				</td>
-				
-				<td>
-					<textarea cols="25" rows="5" name="doctor_address" placeholder="Enter your Valid Address">
-						
-					</textarea>
-				</td>
-
-			</tr>
-
-			<tr >
-
-				<td >
-					<input type="submit" value="submit">
-
-				</td>
-
-			</tr>
-		</table>
-
-	</form>
-</center>
 </body>
 </html>
-{% endblock %}
+{#{% endblock %}#}
+
