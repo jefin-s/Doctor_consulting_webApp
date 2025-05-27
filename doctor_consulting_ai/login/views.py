@@ -2,6 +2,7 @@ from django.shortcuts import render
 from login.models import Login
 from django.http import HttpResponseRedirect
 
+
 # Create your views here.
 def login(request):
     if request.method =='POST':
